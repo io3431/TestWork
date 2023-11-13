@@ -1,0 +1,18 @@
+@model CardModel
+
+<form asp-action="UploadXml" method="post" enctype="multipart/form-data">
+    <div class="card">
+        <h5 class="card-header">Выберите файл XML</h5>
+        <div class="card-body d-flex justify-content-center">
+            <input class="btn btn-outline-dark me-4" type="file" name="xmlFile" id="xmlFile" accept=".xml" />
+            <button class="btn btn-outline-primary" type="submit">Загрузить и добавить в базу данных</button>
+        </div>
+    </div>
+</form>
+<br>
+
+
+@if (ViewBag.Message != null)
+{
+    <div>@ViewBag.Message</div>
+}

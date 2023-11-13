@@ -1,0 +1,28 @@
+@model CardModelDataView
+@using (Html.BeginForm("SaveData", "CheckTable", FormMethod.Post))
+{
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label for="firstName" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" value="@Model.FirstName" />
+        </div>
+
+        <div class="col-sm-6">
+            <label for="lastName" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" value="@Model.LastName"/>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="lastName" class="form-label">Отчество</label>
+            <input type="text" class="form-control" id="surname" name="surname" value="@Model.SurName" />
+        </div>
+
+        <div class="col-12">
+            <label for="email" class="form-label">Дата рождения</label>
+            <input type="date" class="form-control" id="birthday" name="birthday" value="@Model.Birthday" />
+        </div>
+    </div>
+    <br>
+    <input type="hidden" asp-for="@Model.CardCode" />
+    <button class="btn btn-outline-dark">Сохранить</button>
+}

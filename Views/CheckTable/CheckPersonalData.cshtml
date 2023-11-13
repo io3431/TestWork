@@ -1,0 +1,39 @@
+@model CardModelDataView
+<div class="card">
+    <h5 class="card-header">Информация о пользователе</h5>
+    <div class="card-body d-flex justify-content-center">
+        <div class="row g-3">
+            <div class="col-12">
+                <label for="phonehome" class="form-label">Домашний телефон: @Model.PhoneHome</label>
+            </div>
+
+            <div class="col-12">
+                <label for="phonemobil" class="form-label">Мобильный телефон: @Model.PhoneMobil</label>
+            </div>
+
+            <div class="col-12">
+                <label for="email" class="form-label">Email: @Model.Email</label>
+            </div>
+
+            <div class="col-12">
+                <label for="city" class="form-label">Город: @Model.City</label>
+            </div>
+
+            <div class="col-12">
+                <label for="street" class="form-label">Улица: @Model.Street</label>
+            </div>
+
+            <div class="col-12">
+                <label for="house" class="form-label">Дом: @Model.House</label>
+            </div>
+
+            <div class="col-12">
+                <label for="apartment" class="form-label">Квартира: @Model.Apartment</label>
+            </div>
+
+            <div class="col-12">
+                <label for="altadress" class="form-label">Альтернативный адрес: @Model.AltAddress</label>
+            </div>
+        </div>
+    </div>
+</div>

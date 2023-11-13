@@ -1,0 +1,62 @@
+@model CardModelView
+<div style="overflow: auto;height: 600px;">
+    <table class="table table-light table-striped table-bordered">
+        <thead class="table-dark">
+            <tr class="text-center align-middle">
+                <th>Код</th>
+                <th>Дата начала</th>
+                <th>Дата окончания</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th colspan="3">Работа с информацией</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in @Model.Data)
+            {
+                <tr class="text-center align-middle">
+                    <td>@row.CardCode</td>
+                    <td>@row.StartDate</td>
+                    <td>@row.FinishDate</td>
+                    <td>@row.FirstName</td>
+                    <td>@row.LastName</td>
+                    <td>@row.SurName</td>
+                    <td>@row.Birthday</td>
+                    @using (Html.BeginForm("CheckPersonalData", "CheckTable", FormMethod.Post))
+                    {
+                        <input type="hidden" name="cardcode" value="@row.CardCode" />
+                        <input type="hidden" name="phonehome" value="@row.PhoneHome" />
+                        <input type="hidden" name="phonemobil" value="@row.PhoneMobil" />
+                        <input type="hidden" name="email" value="@row.Email" />
+                        <input type="hidden" name="city" value="@row.City" />
+                        <input type="hidden" name="street" value="@row.Street" />
+                        <input type="hidden" name="house" value="@row.House" />
+                        <input type="hidden" name="apartment" value="@row.Apartment" />
+                        <input type="hidden" name="altadress" value="@row.AltAddress" />
+                        <td><button>Персональные данные</button></td>
+                    }
+                    @using (Html.BeginForm("CheckCardData", "CheckTable", FormMethod.Post))
+                    {
+                        <input type="hidden" name="cardcode" value="@row.CardCode" />
+                        <input type="hidden" name="cardtype" value="@row.CardType" />
+                        <input type="hidden" name="ownerguid" value="@row.OwnerGUID" />
+                        <input type="hidden" name="cardper" value="@row.CardPer" />
+                        <input type="hidden" name="turnover" value="@row.TurnOver" />
+                        <td><button>Карта</button></td>
+                    }
+                    @using (Html.BeginForm("ChangeData", "CheckTable", FormMethod.Post))
+                    {
+                        <input type="hidden" name="cardcode" value="@row.CardCode" />
+                        <input type="hidden" name="firstname" value="@row.FirstName" />
+                        <input type="hidden" name="lastname" value="@row.LastName" />
+                        <input type="hidden" name="surname" value="@row.SurName" />
+                        <input type="hidden" name="birthday" value="@row.Birthday" />
+                        <td><button>Редактировать</button></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
